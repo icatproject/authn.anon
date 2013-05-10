@@ -2,7 +2,7 @@
 <document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
     <properties>
-        <title>Authn DB Plugin Installation</title>
+        <title>Authn ANON Plugin Installation</title>
     </properties>
 
     <body>
@@ -43,7 +43,7 @@
                 <p>
                     In the unpacked authn_anon.ear-${project.version}-config.zip file you will find a property file, authn_anon.properties, which
                     should be copied to the config directory for your chosen glassfish domain. You will find your domain directory at
-                    $GLASSFISH_HOME/glassfish/domains. The authn_db.properties file may need changing:
+                    $GLASSFISH_HOME/glassfish/domains. The authn_anon.properties file may need changing:
                 </p>
 
                 <dl>
@@ -58,8 +58,9 @@
 
                     <dt>mechanism</dt>
                     <dd>if specified is a label to appear before the user name as it is made available to ICAT for authorization. For example if this
-                        is set to 'anon' then the user 'xyz123' will be provided to ICAT as 'anon/xyz123', but of no mechanism is specified it will be
-                        provided simply as 'xyz123'.
+                        is set to 'anon' then the user will be provided to ICAT as 'anon/anon', but if no mechanism is specified it will be
+                        provided
+                        simply as 'anon'.
                     </dd>
                 </dl>
 
@@ -81,9 +82,10 @@
             </subsection>
             <subsection name="Check that authn_anon works">
                 <p>
-                    There is currently no stand alone mechanism to check that authn_db is working properly. Please use the test.py script that comes
+                    There is currently no stand alone mechanism to check that authn_anon is working properly. Please use the test.py script that comes
                     with the ICAT
-                    installation if one of your root users can be authorized with this plugin.
+                    installation. This will show that you can login but will fail with: "Read access to this Group is not allowed.", unless authorization rules have been created to
+                    allow 'anon' to write - which is generally not a good idea.
                 </p>
 
                 <p>In case of problems look at the log files: server.log and authn_anon.log which can both be found in the logs directory below your
