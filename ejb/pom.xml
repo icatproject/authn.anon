@@ -3,11 +3,11 @@
 
     <parent>
         <groupId>org.icatproject</groupId>
-        <artifactId>authn_ldap</artifactId>
+        <artifactId>authn_anon</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>authn_ldap.ejb</artifactId>
+    <artifactId>authn_anon.ejb</artifactId>
     <packaging>ejb</packaging>
 
     <dependencies>
@@ -55,7 +55,7 @@
 
 
     <description>ICAT database authentication plugin ejb file</description>
-    <name>ICAT LDAP Authn EJB</name>
+    <name>ICAT ANON Authn EJB</name>
 </project>
 
 

@@ -1,4 +1,4 @@
-package org.icatproject.authn_ldap;
+package org.icatproject.authn_anon;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,11 +20,11 @@ import org.icatproject.authentication.Authenticator;
 import org.icatproject.core.IcatException;
 
 /* Mapped name is to avoid name clashes */
-@Stateless(mappedName = "org.icatproject.authn_ldap.LDAP_Authenticator")
+@Stateless(mappedName = "org.icatproject.authn_anon.ANON_Authenticator")
 @Remote
-public class LDAP_Authenticator implements Authenticator {
+public class ANON_Authenticator implements Authenticator {
 
-	private static final Logger log = Logger.getLogger(LDAP_Authenticator.class);
+	private static final Logger log = Logger.getLogger(ANON_Authenticator.class);
 	private String securityPrincipal;
 	private String providerUrl;
 	private org.icatproject.authentication.AddressChecker addressChecker;
@@ -33,7 +33,7 @@ public class LDAP_Authenticator implements Authenticator {
 	@SuppressWarnings("unused")
 	@PostConstruct
 	private void init() {
-		File f = new File("authn_ldap.properties");
+		File f = new File("authn_anon.properties");
 		Properties props = null;
 		try {
 			props = new Properties();
@@ -81,7 +81,7 @@ public class LDAP_Authenticator implements Authenticator {
 		// Note that the mechanism is optional
 		mechanism = props.getProperty("mechanism");
 
-		log.debug("Initialised LDAP_Authenticator");
+		log.debug("Initialised ANON_Authenticator");
 	}
 
 	@Override
@@ -108,10 +108,10 @@ public class LDAP_Authenticator implements Authenticator {
 					"Password cannot be null or empty.");
 		}
 
-		log.info("Checking username/password with ldap server");
+		log.info("Checking username/password with anon server");
 
 		Hashtable<Object, Object> authEnv = new Hashtable<Object, Object>();
-		authEnv.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
+		authEnv.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.anon.LdapCtxFactory");
 		authEnv.put(Context.PROVIDER_URL, providerUrl);
 		authEnv.put(Context.SECURITY_AUTHENTICATION, "simple");
 		authEnv.put(Context.SECURITY_PRINCIPAL, securityPrincipal.replace("%", username));
