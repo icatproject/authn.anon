@@ -41,6 +41,12 @@
 
             <subsection name="authn_anon.properties">
                 <p>
+                    Obtain
+                    <a href="${repoUrl}/org/icatproject/authn_anon.ear/${project.version}/authn_anon.ear-${project.version}-config.zip">
+    authn_anon.ear-${project.version}-config.zip</a>
+                    and unzip it.
+                </p>
+                <p>
                     In the unpacked authn_anon.ear-${project.version}-config.zip file you will find a property file, authn_anon.properties, which
                     should be copied to the config directory for your chosen glassfish domain. You will find your domain directory at
                     $GLASSFISH_HOME/glassfish/domains. The authn_anon.properties file may need changing:
@@ -84,7 +90,8 @@
                 <p>
                     There is currently no stand alone mechanism to check that authn_anon is working properly. Please use the test.py script that comes
                     with the ICAT
-                    installation. This will show that you can login but will fail with: "Read access to this Group is not allowed.", unless authorization rules have been created to
+                    installation. This will show that you can login but will fail with: "Read access to this Group is not allowed.",
+                    unless authorization rules have been created to
                     allow 'anon' to write - which is generally not a good idea.
                 </p>
 
