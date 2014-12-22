@@ -13,11 +13,11 @@
     </menu>
        
     <menu name="Information for Installers">
-    <item name="Authn ANON Plugin Installation" href="authn_anon.ear/installation.html"/>
+    <item name="Authn ANON Plugin Installation" href="installation.html"/>
     </menu>
     
     <menu ref="reports"/>
-    <menu ref="modules"/>
+ 
  
   </body>
 </project>
