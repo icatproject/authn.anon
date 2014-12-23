@@ -5,7 +5,7 @@ import os
 # authn_anon
 
 actions, options, arg = getActions()
-props = actions.getGlassfish("authn_anon-setup.properties", ["glassfish", "port"])
+actions.getGlassfish("authn_anon-setup.properties", ["glassfish", "port"])
 
 prop_name = "authn_anon.properties"
 prop_list = []
@@ -23,11 +23,13 @@ if arg == "INSTALL":
     try:
         
         app = actions.getAppName("authn_anon.ear")
-        if app: actions.asadmin("undeploy " + app) 
+        if app: actions.undeploy(app)
         app = actions.getAppName("authn_anon")
-        if app: actions.asadmin("undeploy " + app)
+        if app: actions.undeploy(app)
         
         actions.deploy("authn_anon-*.war", deploymentorder=80)
+        app = actions.getAppName("icat.server")
+        if app: actions.restartApp(app)
                     
     except Exception, e:
         abort(str(e))
@@ -36,8 +38,10 @@ if arg == "UNINSTALL":
     actions.removeFile(prop_name)
     
     try:
+        app = actions.getAppName("authn_anon.ear")
+        if app: actions.undeploy(app)
         app = actions.getAppName("authn_anon")
-        if app: actions.asadmin("undeploy " + app)
+        if app: actions.undeploy(app)
     except Exception, e:
         abort(str(e))       
     

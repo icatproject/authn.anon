@@ -16,7 +16,7 @@
                 <ul>
                     <li>
                         The authn_anon distribution:
-                        <a href="${repoUrl}/org/icatproject/authn_anon/${project.version}/authn_anon-${project.version}-distro.zip">authn_db-${project.version}-distro.zip</a>
+                        <a href="${repoUrl}/org/icatproject/authn_anon/${project.version}/authn_anon-${project.version}-distro.zip">authn_anon-${project.version}-distro.zip</a>
                     </li>
                     <li>
                         A suitable deployed container (here assumed to be glassfish) to support a web
