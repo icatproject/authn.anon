@@ -1,20 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
 
-    <properties>
-        <title>ICAT AUTHN_ANON Release Notes</title>
-    </properties>
+	<properties>
+		<title>ICAT AUTHN_ANON Release Notes</title>
+	</properties>
 
-    <body>
-        <section name="1.0.2">
-            <p>This is just a repackaging to support the standard "setup" script. The prefix provided in the example file is now "anon" and the
-                deploymentorder is set to 80</p>
-        </section>
+	<body>
 
-        <section name="1.0.0">
-            <p>Initial release</p>
-        </section>
-    </body>
+		<section name="1.1.0">
+			<p>Implement the Authenticator interface 4.5.0 with the
+				getDescription() call.
+			</p>
+		</section>
+
+		<section name="1.0.2">
+			<p>This is just a repackaging to support the standard "setup" script.
+				The prefix provided in the example file is now "anon" and the
+				deploymentorder is set to 80
+			</p>
+		</section>
+
+		<section name="1.0.0">
+			<p>Initial release</p>
+		</section>
+	</body>
 </document>
             
             

@@ -7,15 +7,15 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
         <fileSet>
-            <outputDirectory>authn_anon</outputDirectory>
+            <outputDirectory>authn.anon</outputDirectory>
             <directory>${basedir}/src/main/scripts</directory>
         </fileSet>
         <fileSet>
-            <outputDirectory>authn_anon</outputDirectory>
+            <outputDirectory>authn.anon</outputDirectory>
             <directory>${basedir}/src/main/config</directory>
         </fileSet>
         <fileSet>
-            <outputDirectory>authn_anon</outputDirectory>
+            <outputDirectory>authn.anon</outputDirectory>
             <directory>${basedir}</directory>
             <filtered>true</filtered>
             <includes>
@@ -27,15 +27,15 @@
 
     <dependencySets>
         <dependencySet>
-            <outputDirectory>authn_anon</outputDirectory>
+            <outputDirectory>authn.anon</outputDirectory>
             <useTransitiveDependencies>false</useTransitiveDependencies>
             <includes>
-                <include>org.icatproject:authn_anon</include>
+                <include>org.icatproject:authn.anon</include>
             </includes>
         </dependencySet>
 
         <dependencySet>
-            <outputDirectory>authn_anon</outputDirectory>
+            <outputDirectory>authn.anon</outputDirectory>
             <useTransitiveDependencies>false</useTransitiveDependencies>
             <unpack>true</unpack>
             <unpackOptions>

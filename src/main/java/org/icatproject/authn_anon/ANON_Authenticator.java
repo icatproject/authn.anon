@@ -1,5 +1,6 @@
 package org.icatproject.authn_anon;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Map;
@@ -8,6 +9,8 @@ import java.util.Properties;
 import javax.annotation.PostConstruct;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.json.Json;
+import javax.json.stream.JsonGenerator;
 
 import org.apache.log4j.Logger;
 import org.icatproject.authentication.AddressChecker;
@@ -32,8 +35,7 @@ public class ANON_Authenticator implements Authenticator {
 			props = new Properties();
 			props.load(new FileInputStream(f));
 		} catch (Exception e) {
-			String msg = "Unable to read property file " + f.getAbsolutePath() + "  "
-					+ e.getMessage();
+			String msg = "Unable to read property file " + f.getAbsolutePath() + "  " + e.getMessage();
 			log.fatal(msg);
 			throw new IllegalStateException(msg);
 
@@ -43,8 +45,8 @@ public class ANON_Authenticator implements Authenticator {
 			try {
 				addressChecker = new AddressChecker(authips);
 			} catch (IcatException e) {
-				String msg = "Problem creating AddressChecker with information from "
-						+ f.getAbsolutePath() + "  " + e.getMessage();
+				String msg = "Problem creating AddressChecker with information from " + f.getAbsolutePath() + "  "
+						+ e.getMessage();
 				log.fatal(msg);
 				throw new IllegalStateException(msg);
 			}
@@ -57,8 +59,7 @@ public class ANON_Authenticator implements Authenticator {
 	}
 
 	@Override
-	public Authentication authenticate(Map<String, String> credentials, String remoteAddr)
-			throws IcatException {
+	public Authentication authenticate(Map<String, String> credentials, String remoteAddr) throws IcatException {
 
 		if (addressChecker != null) {
 			if (!addressChecker.check(remoteAddr)) {
@@ -70,6 +71,15 @@ public class ANON_Authenticator implements Authenticator {
 		log.info("Address checker has accepted anon request");
 		return new Authentication("anon", mechanism);
 
+	}
+
+	@Override
+	public String getDescription() {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		JsonGenerator gen = Json.createGenerator(baos);
+		gen.writeStartObject().writeStartArray("keys");
+		gen.writeEnd().writeEnd().close();
+		return baos.toString();
 	}
 
 }
