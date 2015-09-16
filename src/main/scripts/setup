@@ -4,8 +4,7 @@ import os
 
 # authn_anon
 
-actions, options, arg = getActions()
-actions.getGlassfish("authn_anon-setup.properties", ["glassfish", "port"])
+actions, options, arg = getActions("authn_anon-setup.properties", [])
 
 prop_name = "authn_anon.properties"
 prop_list = []
