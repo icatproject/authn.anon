@@ -10,7 +10,7 @@
 
 		<section name="1.1.0">
 			<p>Implement the Authenticator interface 4.5.0 with the
-				getDescription() call.
+				getDescription() call and support multiple containers.
 			</p>
 		</section>
 

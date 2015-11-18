@@ -3,8 +3,15 @@ from setup_utils import *
 import os
 
 # authn_anon
-
-actions, options, arg = getActions("authn_anon-setup.properties", [])
+def undeploy():
+    app = actions.getAppName("authn_anon.ear")
+    if app: actions.undeploy(app)
+    app = actions.getAppName("authn_anon")
+    if app: actions.undeploy(app)
+    app = actions.getAppName("authn.anon")
+    if app: actions.undeploy(app)
+    
+actions, arg, props = getActions("authn_anon-setup.properties", [])
 
 prop_name = "authn_anon.properties"
 prop_list = []
@@ -15,20 +22,13 @@ if arg in ["CONFIGURE", "INSTALL"]:
     
 if arg == "INSTALL":
                
-    actions.getProperties(prop_name, prop_list)       
+    getProperties(prop_name, prop_list)       
            
     actions.installFile(prop_name)
     
     try:
-        
-        app = actions.getAppName("authn_anon.ear")
-        if app: actions.undeploy(app)
-        app = actions.getAppName("authn_anon")
-        if app: actions.undeploy(app)
-        app = actions.getAppName("authn.anon")
-        if app: actions.undeploy(app)
-        
-        actions.deploy("authn.anon-*.war", deploymentorder=80)
+        undeploy()
+        actions.deploy(deploymentorder=80)
         app = actions.getAppName("icat.server")
         if app: actions.restartApp(app)
                     
@@ -39,12 +39,7 @@ if arg == "UNINSTALL":
     actions.removeFile(prop_name)
     
     try:
-        app = actions.getAppName("authn_anon.ear")
-        if app: actions.undeploy(app)
-        app = actions.getAppName("authn_anon")
-        if app: actions.undeploy(app)
-        app = actions.getAppName("authn.anon")
-        if app: actions.undeploy(app)
+        undeploy()
     except Exception, e:
         abort(str(e))       
     

@@ -1,9 +1,11 @@
-secure         = false
-container      = wildfly
-home           = /home/file/pf/wildfly-9.0.1.Final
-port           = 9990
+# Glassfish
+secure         = true
+container      = glassfish
+home           = /home/fisher/pf/glassfish4
+port           = 4848
 
-!secure         = true
-!container      = glassfish
-!home           = /home/fisher/pf/glassfish4
-!port           = 4848
+# WildFly
+!secure         = false
+!container      = wildfly
+!home           = /home/fisher/pf/wildfly
+!port           = 9990
