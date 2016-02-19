@@ -49,7 +49,7 @@
 		<dl>
 			<dt>container</dt>
 			<dd>May be either glassfish or wildfly - though only glassfish
-				is working properly at the moment.
+				is working fully at the moment.</dd>
 			<dt>home</dt>
 			<dd>is the top level of the container installation. For
 				glasssfish it must contain "glassfish/domains" and for wildfly it
