@@ -12,18 +12,22 @@ import javax.ejb.Stateless;
 import javax.json.Json;
 import javax.json.stream.JsonGenerator;
 
-import org.apache.log4j.Logger;
 import org.icatproject.authentication.AddressChecker;
 import org.icatproject.authentication.Authentication;
 import org.icatproject.authentication.Authenticator;
 import org.icatproject.core.IcatException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
 
 /* Mapped name is to avoid name clashes */
 @Stateless(mappedName = "org.icatproject.authn_anon.ANON_Authenticator")
 @Remote
 public class ANON_Authenticator implements Authenticator {
 
-	private static final Logger log = Logger.getLogger(ANON_Authenticator.class);
+	private static final Logger log = LoggerFactory.getLogger(ANON_Authenticator.class);
+	private Marker fatal = MarkerFactory.getMarker("FATAL");
 	private org.icatproject.authentication.AddressChecker addressChecker;
 	private String mechanism;
 
@@ -36,7 +40,7 @@ public class ANON_Authenticator implements Authenticator {
 			props.load(new FileInputStream(f));
 		} catch (Exception e) {
 			String msg = "Unable to read property file " + f.getAbsolutePath() + "  " + e.getMessage();
-			log.fatal(msg);
+			log.error(fatal, msg);
 			throw new IllegalStateException(msg);
 
 		}
@@ -47,7 +51,7 @@ public class ANON_Authenticator implements Authenticator {
 			} catch (IcatException e) {
 				String msg = "Problem creating AddressChecker with information from " + f.getAbsolutePath() + "  "
 						+ e.getMessage();
-				log.fatal(msg);
+				log.error(fatal, msg);
 				throw new IllegalStateException(msg);
 			}
 		}
@@ -55,7 +59,7 @@ public class ANON_Authenticator implements Authenticator {
 		// Note that the mechanism is optional
 		mechanism = props.getProperty("mechanism");
 
-		log.debug("Initialised ANON_Authenticator");
+		log.info("Initialised ANON_Authenticator");
 	}
 
 	@Override
@@ -68,7 +72,7 @@ public class ANON_Authenticator implements Authenticator {
 			}
 		}
 
-		log.info("Address checker has accepted anon request");
+		log.debug("Address checker has accepted anon request");
 		return new Authentication("anon", mechanism);
 
 	}

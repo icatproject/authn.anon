@@ -30,8 +30,7 @@ if arg == "INSTALL":
         undeploy()
         actions.deploy(deploymentorder=80)
         app = actions.getAppName("icat.server")
-        if app: actions.restartApp(app)
-                    
+        if app: actions.restartApp(app)           
     except Exception, e:
         abort(str(e))
                
