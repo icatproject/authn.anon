@@ -2,7 +2,7 @@
 
 	<appender name="FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>../logs/icat.log</file>
+		<file>../logs/authn_anon.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<fileNamePattern>../logs/authn_anon.log.%d{yyyy-MM-dd}.%i.zip
 			</fileNamePattern>
