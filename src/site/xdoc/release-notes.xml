@@ -8,6 +8,15 @@
 
 	<body>
 
+		<section name="1.1.2">
+			<p>Payara support
+			</p>
+			<ul>
+				<li>Make it compatible with Payara</li>
+				<li>Use new style setup files</li>
+			</ul>
+		</section>
+
 		<section name="1.1.1">
 			<p>The provided logback configuration was overwriting the icat log.
 			</p>

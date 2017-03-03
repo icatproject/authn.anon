@@ -11,9 +11,9 @@ def undeploy():
     app = actions.getAppName("authn.anon")
     if app: actions.undeploy(app)
     
-actions, arg, props = getActions("authn_anon-setup.properties", [])
+actions, arg, props = getActions("setup.properties", [])
 
-prop_name = "authn_anon.properties"
+prop_name = "run.properties"
 prop_list = []
 
 if arg in ["CONFIGURE", "INSTALL"]:
@@ -23,9 +23,7 @@ if arg in ["CONFIGURE", "INSTALL"]:
 if arg == "INSTALL":
                
     getProperties(prop_name, prop_list)       
-           
-    actions.installFile(prop_name)
-    
+               
     try:
         undeploy()
         actions.deploy(deploymentorder=80)
@@ -35,7 +33,6 @@ if arg == "INSTALL":
         abort(str(e))
                
 if arg == "UNINSTALL":
-    actions.removeFile(prop_name)
     
     try:
         undeploy()

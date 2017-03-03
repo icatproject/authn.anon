@@ -20,10 +20,10 @@
 			<li>The authn_anon distribution: <a
 				href="${repoUrl}/org/icatproject/authn.anon/${project.version}/authn.anon-${project.version}-distro.zip">authn_anon-${project.version}-distro.zip</a>
 			</li>
-			<li>A suitable deployed container (here assumed to be glassfish)
-				to support a web application. Testing has been carried out with
-				Glassfish 4.0. <a
-				href="http://icatproject.org/installation/glassfish/">Glassfish
+			<li>A suitable deployed container (here assumed to be
+				Glassfish/Payara) to support a web application. Testing has been
+				carried out with Glassfish 4.0 and Payara41 <a
+				href="http://icatproject.org/installation/glassfish/">Glassfish/Payara
 					installation instructions</a> are available.
 			</li>
 
@@ -45,7 +45,7 @@
 		</ol>
 		</subsection>
 
-		<subsection name="The authn_anon.setup.properties file">
+		<subsection name="The setup.properties file">
 		<dl>
 			<dt>container</dt>
 			<dd>May be either glassfish or wildfly - though only glassfish
@@ -64,7 +64,7 @@
 		</subsection>
 
 
-		<subsection name="The authn_anon.properties file">
+		<subsection name="The run.properties file">
 
 
 		<dl>
