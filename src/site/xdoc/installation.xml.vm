@@ -48,7 +48,7 @@
 		<subsection name="The setup.properties file">
 		<dl>
 			<dt>container</dt>
-			<dd>May be either glassfish or wildfly - though only glassfish
+			<dd>May be either Glassfish or JBoss - though only glassfish
 				is working fully at the moment.</dd>
 			<dt>home</dt>
 			<dd>is the top level of the container installation. For
