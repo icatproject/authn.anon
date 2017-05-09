@@ -13,26 +13,27 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<repoUrl>https://repo.icatproject.org/repo</repoUrl>
 		<project.scm.id>github</project.scm.id>
+		<repoUrl>https://repo.icatproject.org/repo</repoUrl>
+		<gitUrl>https://github.com/icatproject/authn.anon</gitUrl>
 	</properties>
 
 	<repositories>
 		<repository>
 			<id>ICAT Repo</id>
-			<url>http://www.icatproject.org/mvn/repo</url>
+			<url>${repoUrl}</url>
 		</repository>
 	</repositories>
 
 	<scm>
-		<connection>scm:git:https://github.com/icatproject/authn.anon.git</connection>
-		<developerConnection>scm:git:https://github.com/icatproject/authn.anon.git</developerConnection>
-		<url>https://github.com/icatproject/authn.anon</url>
+		<connection>scm:git:${gitUrl}.git</connection>
+		<developerConnection>scm:git:${gitUrl}.git</developerConnection>
+		<url>${gitUrl}</url>
 		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
-		<url>https://github.com/icatproject/authn.anon/issues</url>
+		<url>${gitUrl}/issues</url>
 		<system>GitHub</system>
 	</issueManagement>
 
@@ -64,7 +65,7 @@
 		<dependency>
 			<groupId>org.icatproject</groupId>
 			<artifactId>icat.authentication</artifactId>
-			<version>4.5.1-SNAPSHOT</version>
+			<version>4.6.0</version>
 		</dependency>
 
 		<dependency>
