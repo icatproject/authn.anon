@@ -119,13 +119,6 @@ public class ANON_Authenticator {
 		return baos.toString();
 	}
 
-	/**
-	 * return the version
-	 * 
-	 * @summary Version
-	 * 
-	 * @return json string of the form: <samp>{"version":"4.4.0"}</samp>
-	 */
 	@GET
 	@Path("version")
 	@Produces(MediaType.APPLICATION_JSON)
