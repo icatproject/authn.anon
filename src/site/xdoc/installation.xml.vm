@@ -12,7 +12,7 @@
 	<section name="Installation">
 
 		<subsection name="Compatibility">This authentication
-		plugin will work with an ICAT version of 4.6 or greater.</subsection>
+		plugin will work with an ICAT version of 4.9 or greater.</subsection>
 
 		<subsection name="Prerequisites">
 
@@ -37,9 +37,12 @@
 				href="http://icatproject.org/installation/component/"> the
 					generic installation instructions</a>
 			</li>
-			<li>Update the icat.properties file for icat.server to see the
-				authenticator and restart icat to see the change. The easiest way is
-				to rerun the setup script for the icat.server.</li>
+			<li>Update the run.properties file if necessary for the
+				icat.server to see the authenticator and restart icat to see the
+				change. The easiest way is to rerun the setup script for the
+				icat.server. <em>Remember that restful authenticators are
+					identified by url rather than jndi.</em>
+			</li>
 
 			<li>Check that it works.</li>
 		</ol>
@@ -48,8 +51,8 @@
 		<subsection name="The setup.properties file">
 		<dl>
 			<dt>container</dt>
-			<dd>May be either Glassfish or JBoss - though only glassfish
-				is working fully at the moment.</dd>
+			<dd>May be either Glassfish or JBoss - though only glassfish is
+				working fully at the moment.</dd>
 			<dt>home</dt>
 			<dd>is the top level of the container installation. For
 				glasssfish it must contain "glassfish/domains" and for wildfly it
@@ -85,22 +88,21 @@
 
 		</subsection>
 
-		<subsection name="Update the icat.properties file for your ICAT">
-		<p>This is required for icat to see the new authenticator. As any
-			earlier version of this authenticator will have been removed then it
-			is important to perform this next step promptly.</p>
+		<subsection name="Update the run.properties file for your ICAT server">
+		<p>This is required for the icat.server to see a new
+			authenticator. If you are just updating an existing restful
+			authenticator then the run.properties of the icat.server will not
+			need changing.</p>
 		<p>
-			If you still have the installation directory for icat then edit the
-			icat.properties to refer to the new authenticator and type:
-			<kbd>/setup install</kbd>
-			. This is the recommended way to avoid errors. Otherwise edit the
-			icat.properties file in the config directory for your domain and
-			restart the glassfish domain.
+			Assuming that you still have the installation directory for
+			icat.server then edit the run.properties to refer to the new
+			authenticator and type:
+			<kbd>./setup install</kbd>
 		</p>
 
 		</subsection>
 
-		<subsection name="Check that authn_anon works">
+		<subsection name="Check that authn.anon works">
 		<p>Use testicat (which is installed with ICAT) with one of the
 			entries in the database PASSWD table. It should report that it logs
 			in but may or may not have the permission to run the rest of the
