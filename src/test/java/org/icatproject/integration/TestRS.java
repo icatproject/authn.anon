@@ -88,7 +88,7 @@ public class TestRS {
 			try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
 				String responseString = getString(response);
 				System.out.println(responseString);
-				assertTrue(responseString.startsWith("{\"version\":\"2."));
+				assertTrue(responseString.startsWith("{\"version\":\"1."));
 			}
 		}
 	}
