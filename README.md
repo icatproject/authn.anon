@@ -1,5 +1,6 @@
-authn_anon
-----------
+# authn_anon
+
+[![Build Status](https://travis-ci.org/icatproject/authn.anon.svg?branch=master)](https://travis-ci.org/icatproject/authn.anon)
 
 General installation instructions are at http://www.icatproject.org/installation/component
 
