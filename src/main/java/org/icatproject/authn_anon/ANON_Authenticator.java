@@ -79,7 +79,7 @@ public class ANON_Authenticator {
 			}
 		}
 
-		logger.debug("Login request");
+		logger.debug("Login request from {}", (ip != null ? ip : "?"));
 
 		if (addressChecker != null) {
 			try {
