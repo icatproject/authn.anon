@@ -38,6 +38,3 @@ if arg == "UNINSTALL":
         undeploy()
     except Exception as e:
         abort(str(e))       
-    
-            
-    
