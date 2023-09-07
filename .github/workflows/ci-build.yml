@@ -8,22 +8,17 @@ on:
 
 jobs:
   build_and_tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
-        java: [ '8', '11' ]
+        java: [ '11', '17' ]
     steps:
-      # Setup Java & Python
+      # Setup Java
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java }}
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: "3.9.7"
-          architecture: x64
 
       - name: Cache local Maven repository
         uses: actions/cache@v2
@@ -72,6 +67,7 @@ jobs:
       # Create local instance of ICAT
       - name: Run ICAT Ansible Playbook
         run: |
+          sudo apt-get update
           ansible-playbook icat-ansible/icatdb_minimal_hosts.yml -i icat-ansible/hosts --vault-password-file icat-ansible/vault_pass.txt -vv
 
       # The authn-anon deployed by ansible needs to be undeployed so that the build can run
