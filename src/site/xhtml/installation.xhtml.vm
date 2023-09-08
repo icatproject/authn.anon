@@ -15,14 +15,10 @@
 		<li>The authn.anon distribution: <a
 			href="${repoUrl}/org/icatproject/authn.anon/${project.version}/authn.anon-${project.version}-distro.zip">authn_anon-${project.version}-distro.zip</a>
 		</li>
-		<li>A suitable deployed container (here assumed to be
-			Payara/Glassfish) to support a web application. Testing has been
-			carried out with payara41. <a
-			href="http://icatproject.org/installation/glassfish/">Payara/Glassfish
-				installation instructions</a> are available.
+		<li>A suitable deployed application server that supports JakartaEE 10+. Testing has been carried out with Payara Server Community 6. Other applications servers such as GlassFish and WildFly may work but have not been tested.
+			<a href="http://icatproject.org/installation/glassfish/">Payara/Glassfish installation instructions</a> are available.
 		</li>
-
-		<li>Python (version 2.4 to 2.7) installed on the server.</li>
+		<li>Python 3.6+ installed on the server.</li>
 	</ul>
 
 	<h2>Summary of steps</h2>
